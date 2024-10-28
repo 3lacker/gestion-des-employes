@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: TaskManager
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://dpg-csfkgctsvqrc73fgfhm0-a.oregon-postgres.render.com/employe
+        username: employe_user
+        password: YOt4jgdrvKqXHzBl7hb2qKL2cHoxqEqh
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: update

@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"name": "gestion des employes",
+			"path": "."
+		},
+		{
+			"name": ".mvn",
+			"path": "../../Exam/Bibloi/.mvn"
+		},
+		{
+			"name": "main",
+			"path": "../../Tools for exam dev ops/Create all fuco/src/main"
+		},
+		{
+			"name": "test",
+			"path": "../../Tools for exam dev ops/Create all fuco/src/test"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}
