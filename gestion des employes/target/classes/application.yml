@@ -10,3 +10,13 @@ spring:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
         hibernate:
             ddl-auto: update
+
+
+no:
+    resource:
+        found: The requested URL was not found on this server"
+employee:
+    already:
+    exists: Employee already exists
+general:
+    error: An unexpected error occurred

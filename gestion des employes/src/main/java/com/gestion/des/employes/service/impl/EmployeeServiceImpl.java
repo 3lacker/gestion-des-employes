@@ -10,6 +10,7 @@ import com.gestion.des.employes.model.Employee;
 import com.gestion.des.employes.repository.EmployeeRepository;
 import com.gestion.des.employes.service.EmployeeService;
 import com.gestion.des.employes.dto.EmployeeDTO;
+import com.gestion.des.employes.exception.EmployeeException;
 import com.gestion.des.employes.mapper.EmployeeMapper;
 
 
@@ -31,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Optional<EmployeeDTO> getEmployeeById(Long id) {
         log.info("Fetching employee with id: {}", id);
-        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceAccessException("Employee not found"));
+        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new EmployeeException("Employee not found"));
 
         return Optional.of(employeeMapper.toDto(employee));
     }
@@ -39,6 +40,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     public Employee addEmployee(EmployeeDTO employee) {
         log.info("Adding new employee: {}", employee.getId());
+        if (employeeRepository.findById(employee.getId()).isPresent()) {
+            throw new EmployeeException("Employee not found");
+        }
         return employeeRepository.save(employeeMapper.toEntity(employee));
     }
     @Override
