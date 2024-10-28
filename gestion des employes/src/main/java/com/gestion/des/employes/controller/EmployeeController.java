@@ -3,6 +3,7 @@ package com.gestion.des.employes.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,8 +41,9 @@ public class EmployeeController {
 
 
     @PostMapping
-    public Employee addEmployee(@RequestBody EmployeeDTO employee) {        
-        return employeeService.addEmployee(employee);
+    public ResponseEntity<String> addEmployee(@RequestBody EmployeeDTO employee) {      
+        employeeService.addEmployee(employee);
+        return ResponseEntity.ok("Employee is well added");
     }
     @PutMapping("/{id}")
     public Employee addEmployee(@PathVariable Long id , @RequestBody EmployeeDTO employee) {

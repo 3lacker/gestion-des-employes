@@ -40,8 +40,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     public Employee addEmployee(EmployeeDTO employee) {
         log.info("Adding new employee: {}", employee.getId());
-        if (employeeRepository.findById(employee.getId()).isPresent()) {
-            throw new EmployeeException("Employee not found");
+        if (employeeRepository.findByEmail(employee.getEmail()).isPresent()) {
+            throw new EmployeeException("Email already in use");
         }
         return employeeRepository.save(employeeMapper.toEntity(employee));
     }
