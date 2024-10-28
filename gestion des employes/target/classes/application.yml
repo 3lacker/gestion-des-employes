@@ -11,12 +11,17 @@ spring:
         hibernate:
             ddl-auto: update
 
+messages_en_US:
+    properties:
+        employee-not-found: Employee not found
+        employee-already-exists: messageSource.getMessage("employee-already-exists", null, locale)
+        employee-well-added: Employee is well added
 
-no:
-    resource:
-        found: The requested URL was not found on this server"
-employee:
-    already:
-    exists: Employee already exists
-general:
-    error: An unexpected error occurred
+
+    
+messages_fr_FR:
+    properties:
+        employee-not-found: Employé ibtrouvable
+        employee-already-exists: Employé existe déjà
+        employee-well-added: Employé est bien ajouté
+

@@ -32,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Optional<EmployeeDTO> getEmployeeById(Long id) {
         log.info("Fetching employee with id: {}", id);
-        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new EmployeeException("Employee not found"));
+        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new EmployeeException("messageSource.getMessage("employee-not-found", null, locale)"));
 
         return Optional.of(employeeMapper.toDto(employee));
     }
@@ -48,7 +48,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee updateEmployee(Long id, EmployeeDTO employeeDto) {
         log.info("Updating employeeDto with id: {}", id);
-        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceAccessException("Employee not found"));
+        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceAccessException("messageSource.getMessage("employee-not-found", null, locale)"));
 
         return employeeRepository.save(employeeMapper.toEntity(employeeDto));
     }
